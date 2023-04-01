@@ -1,0 +1,8 @@
+# Ignore python environments
+.env/
+.venv/
+
+# Ignore images (testing)
+*.jpg
+*.png
+*.jpeg
