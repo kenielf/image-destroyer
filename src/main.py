@@ -1,7 +1,6 @@
 from PIL import Image
 from math import floor
 import dearpygui.dearpygui as gui
-from typing import Union
 
 
 class DefaultLowQuality:
@@ -10,7 +9,7 @@ class DefaultLowQuality:
     RESIZE_PARAM = 0.63
 
 
-def low_image(path: str, resize_factor: float, quality: int, optimize: Union[bool]) -> None:
+def low_image(path: str, resize_factor: float, quality: int, optimize: bool) -> None:
     """
     Redimensiona uma imagem localizada no caminho especificado por `path` para uma nova resolução,
     calculada como o produto da dimensão original e o fator de redimensionamento `resize_factor`.
@@ -49,9 +48,10 @@ path_image: str = ""
 def load_image(_, app_data):
     global path_image
     path_image = app_data["file_path_name"]
+    gui.set_value("text_path_image", path_image)
 
 
-def process_image():
+def process_image() -> None:
     if gui.get_value("check_default"):
         low_image(
             path_image,
@@ -86,6 +86,8 @@ def init_gui() -> None:
             gui.add_file_extension(".png")
         gui.add_text("App para reduzir qualidade de imagens")
         gui.add_button(label="Importar imagem", callback=lambda: gui.show_item("file_dialog_image"))
+        gui.add_text("Imagem não carregada", tag="text_path_image")
+        gui.add_separator()
         gui.add_input_float(
             label="Fator em % da escala",
             tag="txt_fator_escala",
@@ -100,7 +102,7 @@ def init_gui() -> None:
     gui.destroy_context()
 
 
-def main():
+def main() -> None:
     init_gui()
 
 
