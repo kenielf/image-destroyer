@@ -2,7 +2,6 @@
 
 ## Uses
  - DearPyIMGUI
- - Numpy
  - Pillow
 
 ## Features
