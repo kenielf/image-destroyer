@@ -1,6 +1,6 @@
 # Image Destroyer
 
-## Uses
+## Libs/Requirements
  - DearPyIMGUI
  - Pillow
 
