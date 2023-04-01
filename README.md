@@ -6,12 +6,18 @@
 
 ## Install and run
 
+Env
+```
+python3 -m venv .env
+.env/Scripts/activate[.bat|ps1]
+```
+Requirements
 ```
 pip install -r requirements.txt
 ```
-and
+Run
 ```python
-py main.py
+python3 main.py
 ```
 
 ## Features
